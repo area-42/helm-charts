@@ -44,6 +44,17 @@ spec:
               secretKeyRef:
                 name: {{ include "limesurvey.databaseSecretName" . }}
                 key: mariadb-password
+          - name: LIMESURVEY_ADMIN_USER
+            value: {{ .Values.limesurvey.admin.username | quote }}
+          - name: LIMESURVEY_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "limesurvey.secretName" . }}
+                key: limesurvey-admin-password
+          - name: LIMESURVEY_ADMIN_NAME
+            value: {{ .Values.limesurvey.admin.name | quote }}
+          - name: LIMESURVEY_ADMIN_EMAIL
+            value: {{ .Values.limesurvey.admin.email | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

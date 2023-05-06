@@ -75,3 +75,14 @@ Return the MariaDB Secret Name
 {{- printf "%s" (include "limesurvey.mariadb.fullname" .) -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Return the LimeSurvey Secret Name
+*/}}
+{{- define "limesurvey.secretName" -}}
+{{- if .Values.limesurvey.admin.existingSecret -}}
+{{- printf "%s" .Values.limesurvey.admin.existingSecret -}}
+{{- else -}}
+{{- printf "%s" (include "limesurvey.fullname" .) -}}
+{{- end -}}
+{{- end -}}

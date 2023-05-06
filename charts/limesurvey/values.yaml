@@ -54,6 +54,16 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+limesurvey:
+  admin:
+    name: Lime Administrator
+    email: lime@lime.lime
+    username: admin
+    password: ""
+    # Use existing secret (admin.password will be ignored).
+    # secret must contain the keys limesurvey-admin-password
+    existingSecret: ""
+
 ##
 ## MariaDB chart configuration
 ## ref: https://github.com/bitnami/charts/tree/main/bitnami/mariadb
