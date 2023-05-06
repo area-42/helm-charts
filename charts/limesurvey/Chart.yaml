@@ -16,6 +16,3 @@ dependencies:
     condition: mariadb.enabled
     repository: https://charts.bitnami.com/bitnami
     version: 12.x
-    import-values:
-      - child: auth
-        parent: mariadbAuth
