@@ -61,8 +61,14 @@ limesurvey:
     username: admin
     password: ""
     # Use existing secret (admin.password will be ignored).
-    # secret must contain the keys limesurvey-admin-password
+    # secret must contain the key limesurvey-admin-password
     existingSecret: ""
+  tablePrefix: "lime_"
+  debug: "0"
+  sqlDebug: "0"
+  useInnodb: "true"
+  dbSessions: "false"
+  tz: "Europe/Berlin"
 
 ##
 ## MariaDB chart configuration

@@ -55,6 +55,18 @@ spec:
             value: {{ .Values.limesurvey.admin.name | quote }}
           - name: LIMESURVEY_ADMIN_EMAIL
             value: {{ .Values.limesurvey.admin.email | quote }}
+          - name: LIMESURVEY_TABLE_PREFIX
+            value: {{ .Values.limesurvey.tablePrefix | quote }}
+          - name: LIMESURVEY_DEBUG
+            value: {{ .Values.limesurvey.debug | quote }}
+          - name: LIMESURVEY_SQL_DEBUG
+            value: {{ .Values.limesurvey.sqlDebug | quote }}
+          - name: LIMESURVEY_USE_INNODB
+            value: {{ .Values.limesurvey.useInnodb | quote }}
+          - name: LIMESURVEY_DB_SESSIONS
+            value: {{ .Values.limesurvey.dbSessions | quote }}
+          - name: TZ
+            value: {{ .Values.limesurvey.tz | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
