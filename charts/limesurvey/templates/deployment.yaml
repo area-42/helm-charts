@@ -32,6 +32,29 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          volumeMounts:
+            - name: limesurvey-main
+              mountPath: "/var/www/html/plugins"
+              subPath: "plugins"
+            - name: limesurvey-main
+              mountPath: "/var/www/html/upload"
+              subPath: "upload"
+            - name: limesurvey-main
+              mountPath: "/var/lime/sessions"
+              subPath: "sessions"
+            - name: limesurvey-main
+              mountPath: "/var/www/html/application/config"
+              subPath: "config"
+          {{- range .Values.extraVolumeMounts }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              subPath: {{ .subPath | default "" }}
+              readOnly: {{ .readOnly }}
+          {{- end }}
+          {{- range .Values.extraEmptyDirMounts }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+          {{- end }}
           env:
           - name: LIMESURVEY_DB_HOST
             value: {{ include "limesurvey.mariadb.fullname" . }}
@@ -72,14 +95,18 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.limesurvey.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
               path: /
               port: http
+          {{- end }}
+          {{- if .Values.limesurvey.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
               path: /
               port: http
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       initContainers:
@@ -109,3 +136,34 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: limesurvey-main
+      {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "limesurvey.fullname" .) }}
+      {{- else }}
+          emptyDir: {}
+      {{- end -}}
+      {{- range .Values.extraVolumeMounts }}
+        - name: {{ .name }}
+          {{- if .existingClaim }}
+          persistentVolumeClaim:
+            claimName: {{ .existingClaim }}
+          {{- else if .hostPath }}
+          hostPath:
+            path: {{ .hostPath }}
+          {{- else if .configMap }}
+          configMap:
+            name: {{ .configMap }}
+            {{- with .items }}
+            items:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+      {{- end }}
+      {{- range .Values.extraEmptyDirMounts }}
+        - name: {{ .name }}
+          emptyDir: {}
+      {{- end -}}

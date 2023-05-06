@@ -67,8 +67,52 @@ limesurvey:
   debug: "0"
   sqlDebug: "0"
   useInnodb: "true"
-  dbSessions: "false"
+  dbSessions: ""
   tz: "Europe/Berlin"
+
+  # Probes, disable them when you enable global ssl enforcement, because they won't work with the redirect to https
+  livenessProbe:
+    enabled: true
+  readinessProbe:
+    enabled: true
+
+## Enable persistence using Persistent Volume Claims
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+persistence:
+  enabled: true
+  storageClass: null
+  accessModes:
+    - ReadWriteOnce
+  size: 5Gi
+  annotations:
+    helm.sh/resource-policy: "keep"
+  finalizers:
+    - kubernetes.io/pvc-protection
+  selectorLabels: {}
+  existingClaim: null
+
+## This allows you to mount additional volumes
+## into the Limesurvey container
+extraVolumeMounts: []
+# - name: extra-volume-0
+#   mountPath: /mnt/volume0
+#   readOnly: true
+#   existingClaim: volume-claim
+# - name: extra-volume-1
+#   mountPath: /mnt/volume1
+#   readOnly: true
+#   hostPath: /usr/shared/
+# - name: extra-volume-configmap
+#   configMap: limesurvey
+#   items:
+#   - key: config.php
+#     path: application/config/config.php
+
+## This allows you to mount additional "emptyDirs"
+## into the Limesurvey container
+extraEmptyDirMounts: []
+# - name: extra-empty-dir
+#   mountPath: /var/lib/foobar
 
 ##
 ## MariaDB chart configuration
@@ -90,7 +134,7 @@ mariadb:
   ##
   primary:
     persistence:
-      enabled: false
+      enabled: true
       # Use an existing Persistent Volume Claim (must be created ahead of time)
       # existingClaim: ""
       # storageClass: ""
