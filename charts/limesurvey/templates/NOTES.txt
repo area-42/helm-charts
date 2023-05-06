@@ -20,7 +20,7 @@
   echo "Visit http://127.0.0.1:8080/admin to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
 {{- end }}
-2. Get your nextcloud login credentials by running:
+2. Get your limesurvey login credentials by running:
 
   echo User:     {{ .Values.limesurvey.admin.username }}
   echo Password: $(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "limesurvey.secretName" . }} -o jsonpath="{.data.limesurvey-admin-password}" | base64 --decode)
