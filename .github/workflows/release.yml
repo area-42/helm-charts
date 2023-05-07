@@ -33,6 +33,19 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
 
+      - name: Setup Chart Linting
+        id: lint
+        uses: helm/chart-testing-action@v2.4.0
+
+      - name: Run chart-testing (lint)
+        run: ct lint --debug --config ./.github/configs/ct-lint.yaml --lint-conf ./.github/configs/lintconf.yaml --validate-maintainers=false --all
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1.5.0
+
+      - name: Run chart-testing (install)
+        run: ct install --config ./.github/configs/ct-lint.yaml --all
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         env:
