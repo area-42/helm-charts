@@ -1,26 +1,35 @@
 # Default values for limesurvey.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
 
+# -- (int) Numbers of replicas
 replicaCount: 1
 
 image:
+  # -- The docker image repository to use
   repository: acspri/limesurvey
+  # -- The docker image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- The docker image tag to use
+  # @default -- vhart appVersion
   tag: ""
 
 imagePullSecrets: []
+# -- String to override the default generated name
 nameOverride: ""
+# -- String to override the default generated fullname
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: false
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+# -- Annotations for the pods
 podAnnotations: {}
 
 podSecurityContext: {}
@@ -30,17 +39,22 @@ securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
-  # readOnlyRootFilesystem: true
   # runAsNonRoot: true
+  # readOnlyRootFilesystem: true
   # runAsUser: 1000
 
 service:
+  # -- Specifies what type of Service should be created
   type: ClusterIP
+  # -- Default Service port
   port: 80
 
 ingress:
+  # -- Specifies whether Ingress should be created or not
   enabled: false
+  # -- Specifies what type of Ingress should be created
   className: ""
+  # -- Additional annotations
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -49,6 +63,7 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+  # -- Ingress tls
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -56,29 +71,41 @@ ingress:
 
 limesurvey:
   admin:
+    # -- The full name of the Limesurvey administrator
     name: Lime Administrator
+    # --The email address of the Limesurvey administrator
     email: lime@lime.lime
+    # -- The username of the Limesurvey administrator)
     username: admin
+    # -- The password of the Limesurvey administrator
     password: ""
-    # Use existing secret (admin.password will be ignored).
+    # -- Use existing secret (admin.password will be ignored).
     # secret must contain the key limesurvey-admin-password
     existingSecret: ""
+  # -- Set this to "myprefix_" if you want your table names to have the myprefix_
   tablePrefix: "lime_"
+  # -- Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates
   debug: "0"
+  # -- Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2
   sqlDebug: "0"
+  # -- Leave blank or don't set to use standard MyISAM database. Set to any value to use InnoDB
   useInnodb: "true"
+  # -- Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions
   dbSessions: ""
+  # -- Time zone name. If set, will configure PHP and LimeSurvey to use this time zone
   tz: "Europe/Berlin"
 
-  # Probes, disable them when you enable global ssl enforcement, because they won't work with the redirect to https
+
   livenessProbe:
+    # -- livenessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https
     enabled: true
   readinessProbe:
+    # -- readinessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https
     enabled: true
 
-## Enable persistence using Persistent Volume Claims
-## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 persistence:
+  # -- Enable persistence using Persistent Volume Claims
+  # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
   enabled: true
   storageClass: null
   accessModes:
@@ -91,8 +118,8 @@ persistence:
   selectorLabels: {}
   existingClaim: null
 
-## This allows you to mount additional volumes
-## into the Limesurvey container
+# -- This allows you to mount additional volumes
+# into the Limesurvey container
 extraVolumeMounts: []
 # - name: extra-volume-0
 #   mountPath: /mnt/volume0
@@ -108,39 +135,37 @@ extraVolumeMounts: []
 #   - key: config.php
 #     path: application/config/config.php
 
-## This allows you to mount additional "emptyDirs"
-## into the Limesurvey container
+# -- This allows you to mount additional "emptyDirs"
+# into the Limesurvey container
 extraEmptyDirMounts: []
 # - name: extra-empty-dir
 #   mountPath: /var/lib/foobar
 
-##
-## MariaDB chart configuration
-## ref: https://github.com/bitnami/charts/tree/main/bitnami/mariadb
-##
+# MariaDB chart configuration
+# ref: https://github.com/bitnami/charts/tree/main/bitnami/mariadb
 mariadb:
   auth:
     database: limesurvey
     username: limesurvey
     password: changeme
-    # Use existing secret (auth.rootPassword, auth.password, and auth.replicationPassword will be ignored).
+    # -- Use existing secret (auth.rootPassword, auth.password, and auth.replicationPassword will be ignored).
     # secret must contain the keys mariadb-root-password, mariadb-replication-password and mariadb-password
     existingSecret: ""
 
   architecture: standalone
 
-  ## Enable persistence using Persistent Volume Claims
-  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-  ##
   primary:
     persistence:
+      # -- Enable persistence using Persistent Volume Claims
+      # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
       enabled: true
-      # Use an existing Persistent Volume Claim (must be created ahead of time)
+      # -- Use an existing Persistent Volume Claim (must be created ahead of time)
       # existingClaim: ""
       # storageClass: ""
       accessMode: ReadWriteOnce
       size: 8Gi
 
+# -- Set the resources requests and limits
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -160,8 +185,11 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+# -- Set the node selector for the pod.
 nodeSelector: {}
 
+# -- Set the tolerations for the pod.
 tolerations: []
 
+# -- Set the affinity for the pod.
 affinity: {}
