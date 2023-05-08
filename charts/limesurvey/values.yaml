@@ -144,6 +144,8 @@ extraEmptyDirMounts: []
 # MariaDB chart configuration
 # ref: https://github.com/bitnami/charts/tree/main/bitnami/mariadb
 mariadb:
+  # -- Deploy a MariaDB server
+  enabled: true
   auth:
     database: limesurvey
     username: limesurvey
@@ -164,6 +166,23 @@ mariadb:
       # storageClass: ""
       accessMode: ReadWriteOnce
       size: 8Gi
+
+## -- Use an externally provisioned database instance
+## Ignored when mariadb.enabled is set to true
+externalDatabase:
+  # -- External Database server host
+  host: mariadb.example.com
+  # -- External Database server port
+  port: 3306
+  # -- External Database username
+  username: limesurvey
+  # -- External Database user password
+  password: ""
+  # -- External Database database name
+  database: limesurvey
+  # -- Use an existing secret for retrieving the database password.
+  # The secret must contain the field "mariadb-password"
+  existingSecret: ""
 
 # -- Set the resources requests and limits
 resources: {}

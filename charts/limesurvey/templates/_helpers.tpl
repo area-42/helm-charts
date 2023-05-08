@@ -69,10 +69,16 @@ Create the name of the service account to use
 Return the MariaDB Secret Name
 */}}
 {{- define "limesurvey.databaseSecretName" -}}
-{{- if .Values.mariadb.auth.existingSecret -}}
-{{- printf "%s" .Values.mariadb.auth.existingSecret -}}
+{{- if .Values.mariadb.enabled }}
+    {{- if .Values.mariadb.auth.existingSecret -}}
+        {{- printf "%s" .Values.mariadb.auth.existingSecret -}}
+    {{- else -}}
+        {{- printf "%s" (include "limesurvey.mariadb.fullname" .) -}}
+    {{- end -}}
+{{- else if .Values.externalDatabase.existingSecret -}}
+    {{- printf "%s" .Values.externalDatabase.existingSecret -}}
 {{- else -}}
-{{- printf "%s" (include "limesurvey.mariadb.fullname" .) -}}
+    {{- printf "%s-mariadb" (include "limesurvey.fullname" .) -}}
 {{- end -}}
 {{- end -}}
 

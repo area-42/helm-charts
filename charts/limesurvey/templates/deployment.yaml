@@ -57,16 +57,34 @@ spec:
           {{- end }}
           env:
           - name: LIMESURVEY_DB_HOST
+            {{- if eq .Values.mariadb.enabled true }}
             value: {{ include "limesurvey.mariadb.fullname" . }}
-          - name: LIMESURVEY_DB_NAME
-            value: {{ .Values.mariadb.auth.database | quote }}
+            {{- else }}
+            value: {{ .Values.externalDatabase.host }}
+            {{- end }}
+          - name: LIMESURVEY_DB_PORT
+            {{- if eq .Values.mariadb.enabled true }}
+            value: {{ coalesce .Values.mariadb.primary.service.ports.mysql .Values.mariadb.primary.service.port 3306 | quote }}
+            {{- else }}
+            value: {{ coalesce .Values.externalDatabase.port 3306 | quote }}
+            {{- end }}
           - name: LIMESURVEY_DB_USER
-            value: {{ .Values.mariadb.auth.username | quote }}
+            {{- if eq .Values.mariadb.enabled true }}
+            value: {{ .Values.mariadb.auth.username }}
+            {{- else }}
+            value: {{ .Values.externalDatabase.username }}
+            {{- end }}
           - name: LIMESURVEY_DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ include "limesurvey.databaseSecretName" . }}
                 key: mariadb-password
+          - name: LIMESURVEY_DB_NAME
+            {{- if eq .Values.mariadb.enabled true }}
+            value: {{ .Values.mariadb.auth.database }}
+            {{- else }}
+            value: {{ .Values.externalDatabase.database }}
+            {{- end }}
           - name: LIMESURVEY_ADMIN_USER
             value: {{ .Values.limesurvey.admin.username | quote }}
           - name: LIMESURVEY_ADMIN_PASSWORD
@@ -113,9 +131,25 @@ spec:
       - name: mariadb-isalive
         image: {{ .Values.mariadb.image.registry }}/{{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}
         env:
-        - name: MYSQL_USER
-          value: {{ .Values.mariadb.auth.username | quote }}
-        - name: MYSQL_PASSWORD
+        - name: MARIADB_HOST
+          {{- if eq .Values.mariadb.enabled true }}
+          value: {{ include "limesurvey.mariadb.fullname" . }}
+          {{- else }}
+          value: {{ .Values.externalDatabase.host }}
+          {{- end }}
+        - name: MARIADB_PORT
+          {{- if eq .Values.mariadb.enabled true }}
+          value: {{ coalesce .Values.mariadb.primary.service.ports.mysql .Values.mariadb.primary.service.port 3306 | quote }}
+          {{- else }}
+          value: {{ coalesce .Values.externalDatabase.port 3306 | quote }}
+          {{- end }}
+        - name: MARIADB_USER
+          {{- if eq .Values.mariadb.enabled true }}
+          value: {{ .Values.mariadb.auth.username }}
+          {{- else }}
+          value: {{ .Values.externalDatabase.username }}
+          {{- end }}
+        - name: MARIADB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ include "limesurvey.databaseSecretName" . }}
@@ -123,7 +157,7 @@ spec:
         command:
           - "sh"
           - "-c"
-          - {{ printf "until mysql --host=%s-mariadb --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
+          - "until mariadb --host=${MARIADB_HOST} --port=${MARIADB_PORT} --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mariadb; sleep 2; done;"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

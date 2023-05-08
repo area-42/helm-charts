@@ -1,6 +1,6 @@
 # LimeSurvey
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=for-the-badge)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 6.0.5](https://img.shields.io/badge/AppVersion-6.0.5-informational?style=for-the-badge)
 
@@ -28,6 +28,12 @@ helm install limesurvey \
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| externalDatabase.database | string | `"limesurvey"` | External Database database name |
+| externalDatabase.existingSecret | string | `""` | Use an existing secret for retrieving the database password. The secret must contain the field "mariadb-password" |
+| externalDatabase.host | string | `"mariadb.example.com"` | External Database server host |
+| externalDatabase.password | string | `""` | External Database user password |
+| externalDatabase.port | int | `3306` | External Database server port |
+| externalDatabase.username | string | `"limesurvey"` | External Database username |
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the Limesurvey container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the Limesurvey container |
 | fullnameOverride | string | `""` | String to override the default generated fullname |
@@ -60,6 +66,7 @@ helm install limesurvey \
 | mariadb.auth.existingSecret | string | `""` | Use existing secret (auth.rootPassword, auth.password, and auth.replicationPassword will be ignored). secret must contain the keys mariadb-root-password, mariadb-replication-password and mariadb-password |
 | mariadb.auth.password | string | `"changeme"` |  |
 | mariadb.auth.username | string | `"limesurvey"` |  |
+| mariadb.enabled | bool | `true` | Deploy a MariaDB server |
 | mariadb.primary.persistence.accessMode | string | `"ReadWriteOnce"` | Use an existing Persistent Volume Claim (must be created ahead of time) existingClaim: "" storageClass: "" |
 | mariadb.primary.persistence.enabled | bool | `true` | Enable persistence using Persistent Volume Claims ref: http://kubernetes.io/docs/user-guide/persistent-volumes/ |
 | mariadb.primary.persistence.size | string | `"8Gi"` |  |
