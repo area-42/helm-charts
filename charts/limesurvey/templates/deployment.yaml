@@ -106,6 +106,8 @@ spec:
             value: {{ .Values.limesurvey.useInnodb | quote }}
           - name: LIMESURVEY_DB_SESSIONS
             value: {{ .Values.limesurvey.dbSessions | quote }}
+          - name: LIMESURVEY_DONT_SHOW_SCRIPT_NAME
+            value: {{ .Values.limesurvey.dontShowScriptName | quote }}
           - name: TZ
             value: {{ .Values.limesurvey.tz | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}

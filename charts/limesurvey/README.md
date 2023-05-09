@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=for-the-badge)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.0.5](https://img.shields.io/badge/AppVersion-6.0.5-informational?style=for-the-badge)
+![AppVersion: 6.0.6](https://img.shields.io/badge/AppVersion-6.0.6-informational?style=for-the-badge)
 
 ## Description
 
@@ -38,7 +38,7 @@ helm install limesurvey \
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the Limesurvey container |
 | fullnameOverride | string | `""` | String to override the default generated fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | The docker image pull policy |
-| image.repository | string | `"acspri/limesurvey"` | The docker image repository to use |
+| image.repository | string | `"adamzammit/limesurvey"` | The docker image repository to use |
 | image.tag | string | vhart appVersion | The docker image tag to use |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` | Additional annotations |
@@ -55,6 +55,7 @@ helm install limesurvey \
 | limesurvey.admin.username | string | `"admin"` | The username of the Limesurvey administrator) |
 | limesurvey.dbSessions | string | `""` | Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions |
 | limesurvey.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
+| limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
 | limesurvey.livenessProbe.enabled | bool | `true` | livenessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https |
 | limesurvey.readinessProbe.enabled | bool | `true` | readinessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https |
 | limesurvey.sqlDebug | string | `"0"` | Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2 |

@@ -7,7 +7,7 @@ replicaCount: 1
 
 image:
   # -- The docker image repository to use
-  repository: acspri/limesurvey
+  repository: adamzammit/limesurvey
   # -- The docker image pull policy
   pullPolicy: IfNotPresent
   # -- The docker image tag to use
@@ -92,6 +92,8 @@ limesurvey:
   useInnodb: "true"
   # -- Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions
   dbSessions: ""
+  # -- Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name
+  dontShowScriptName: ""
   # -- Time zone name. If set, will configure PHP and LimeSurvey to use this time zone
   tz: "Europe/Berlin"
 
