@@ -156,6 +156,7 @@ spec:
             secretKeyRef:
               name: {{ include "limesurvey.databaseSecretName" . }}
               key: mariadb-password
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
           - "sh"
           - "-c"
