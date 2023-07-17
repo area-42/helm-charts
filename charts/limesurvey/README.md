@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.2.11](https://img.shields.io/badge/Version-0.2.11-informational?style=for-the-badge)
+![Version: 0.2.13](https://img.shields.io/badge/Version-0.2.13-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.1.7](https://img.shields.io/badge/AppVersion-6.1.7-informational?style=for-the-badge)
+![AppVersion: 6.1.8](https://img.shields.io/badge/AppVersion-6.1.8-informational?style=for-the-badge)
 
 ## Description
 
@@ -28,6 +28,9 @@ helm install limesurvey \
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| deployment.updateStrategy.rollingUpdate.maxSurge | string | `"25%"` |  |
+| deployment.updateStrategy.rollingUpdate.maxUnavailable | string | `"25%"` |  |
+| deployment.updateStrategy.type | string | `"RollingUpdate"` |  |
 | externalDatabase.database | string | `"limesurvey"` | External Database database name |
 | externalDatabase.existingSecret | string | `""` | Use an existing secret for retrieving the database password. The secret must contain the field "mariadb-password" |
 | externalDatabase.host | string | `"mariadb.example.com"` | External Database server host |

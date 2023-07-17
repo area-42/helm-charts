@@ -20,6 +20,13 @@ nameOverride: ""
 # -- String to override the default generated fullname
 fullnameOverride: ""
 
+deployment:
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: false
