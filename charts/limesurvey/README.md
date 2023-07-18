@@ -28,6 +28,7 @@ helm install limesurvey \
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| deployment | object | `{}` |  |
 | externalDatabase.database | string | `"limesurvey"` | External Database database name |
 | externalDatabase.existingSecret | string | `""` | Use an existing secret for retrieving the database password. The secret must contain the field "mariadb-password" |
 | externalDatabase.host | string | `"mariadb.example.com"` | External Database server host |

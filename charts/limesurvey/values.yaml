@@ -20,6 +20,8 @@ nameOverride: ""
 # -- String to override the default generated fullname
 fullnameOverride: ""
 
+deployment: {}
+
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: false
