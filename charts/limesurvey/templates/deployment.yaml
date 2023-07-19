@@ -114,6 +114,9 @@ spec:
           - name: TZ
             value: {{ .Values.limesurvey.tz | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.deployment.lifecycleHooks }}
+          lifecycle: {{- toYaml .Values.deployment.lifecycleHooks | nindent 12 }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
