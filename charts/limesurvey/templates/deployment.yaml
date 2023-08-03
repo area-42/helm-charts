@@ -126,12 +126,18 @@ spec:
             httpGet:
               path: /
               port: http
+              httpHeaders:
+              - name: X-Forwarded-Proto
+                value: https
           {{- end }}
           {{- if .Values.limesurvey.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
               path: /
               port: http
+              httpHeaders:
+              - name: X-Forwarded-Proto
+                value: https
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

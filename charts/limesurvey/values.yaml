@@ -101,10 +101,8 @@ limesurvey:
 
 
   livenessProbe:
-    # -- livenessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https
     enabled: true
   readinessProbe:
-    # -- readinessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https
     enabled: true
 
 persistence:

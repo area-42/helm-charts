@@ -1,6 +1,6 @@
 # LimeSurvey
 
-![Version: 0.2.16](https://img.shields.io/badge/Version-0.2.16-informational?style=for-the-badge)
+![Version: 0.2.17](https://img.shields.io/badge/Version-0.2.17-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 6.2.0](https://img.shields.io/badge/AppVersion-6.2.0-informational?style=for-the-badge)
 
@@ -57,8 +57,8 @@ helm install limesurvey \
 | limesurvey.dbSessions | string | `""` | Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions |
 | limesurvey.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
-| limesurvey.livenessProbe.enabled | bool | `true` | livenessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https |
-| limesurvey.readinessProbe.enabled | bool | `true` | readinessProbe, disable when you enable global ssl enforcement, because they won't work with the redirect to https |
+| limesurvey.livenessProbe.enabled | bool | `true` |  |
+| limesurvey.readinessProbe.enabled | bool | `true` |  |
 | limesurvey.sqlDebug | string | `"0"` | Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2 |
 | limesurvey.tablePrefix | string | `"lime_"` | Set this to "myprefix_" if you want your table names to have the myprefix_ |
 | limesurvey.tz | string | `"Europe/Berlin"` | Time zone name. If set, will configure PHP and LimeSurvey to use this time zone |
