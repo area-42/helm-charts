@@ -1,8 +1,9 @@
 # LimeSurvey
 
-![Version: 0.2.17](https://img.shields.io/badge/Version-0.2.17-informational?style=for-the-badge)
+![Version: 0.2.19](https://img.shields.io/badge/Version-0.2.19-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.2.0](https://img.shields.io/badge/AppVersion-6.2.0-informational?style=for-the-badge)
+![AppVersion: 6.2.2](https://img.shields.io/badge/AppVersion-6.2.2-informational?style=for-the-badge)
+
 
 ## Description
 
@@ -93,6 +94,8 @@ helm install limesurvey \
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | Set the tolerations for the pod. |
+
+
 
 ## Source Code
 
