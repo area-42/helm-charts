@@ -1,9 +1,8 @@
 # LimeSurvey
 
-![Version: 0.2.21](https://img.shields.io/badge/Version-0.2.21-informational?style=for-the-badge)
-![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) 
-![AppVersion: 6.2.4](https://img.shields.io/badge/AppVersion-6.2.4-informational?style=for-the-badge) 
-
+![Version: 0.2.22](https://img.shields.io/badge/Version-0.2.22-informational?style=for-the-badge)
+![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
+![AppVersion: 6.2.4](https://img.shields.io/badge/AppVersion-6.2.4-informational?style=for-the-badge)
 
 ## Description
 
@@ -60,6 +59,12 @@ helm install limesurvey \
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
+| limesurvey.smtp.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
+| limesurvey.smtp.existingSecret | string | `""` | Use existing secret (smtp.password will be ignored). secret must contain the key limesurvey-smtp-password |
+| limesurvey.smtp.host | string | `""` | set the SMTP host - you can also specify a different port than 25 by using this format: [hostname:port], e.g. "smtp.example.com:587") |
+| limesurvey.smtp.password | string | `""` | SMTP authorization password - empty password is not allowed |
+| limesurvey.smtp.ssl | string | `""` | set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection |
+| limesurvey.smtp.user | string | `""` | only set this if your server requires authorization - if you set it you HAVE to set a password too |
 | limesurvey.sqlDebug | string | `"0"` | Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2 |
 | limesurvey.tablePrefix | string | `"lime_"` | Set this to "myprefix_" if you want your table names to have the myprefix_ |
 | limesurvey.tz | string | `"Europe/Berlin"` | Time zone name. If set, will configure PHP and LimeSurvey to use this time zone |
@@ -94,8 +99,6 @@ helm install limesurvey \
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | Set the tolerations for the pod. |
-
-
 
 ## Source Code
 

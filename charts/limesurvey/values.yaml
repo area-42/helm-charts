@@ -75,7 +75,7 @@ limesurvey:
   admin:
     # -- The full name of the Limesurvey administrator
     name: Lime Administrator
-    # --The email address of the Limesurvey administrator
+    # -- The email address of the Limesurvey administrator
     email: lime@lime.lime
     # -- The username of the Limesurvey administrator)
     username: admin
@@ -84,6 +84,21 @@ limesurvey:
     # -- Use existing secret (admin.password will be ignored).
     # secret must contain the key limesurvey-admin-password
     existingSecret: ""
+  smtp:
+    # -- set the SMTP host - you can also specify a different port than 25 by using this format: [hostname:port], e.g. "smtp.example.com:587")
+    host: ""
+    # -- only set this if your server requires authorization - if you set it you HAVE to set a password too
+    user: ""
+    # -- SMTP authorization password - empty password is not allowed
+    password: ""
+    # -- Use existing secret (smtp.password will be ignored).
+    # secret must contain the key limesurvey-smtp-password
+    existingSecret: ""
+    # -- set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection
+    ssl: ""
+    # -- Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates
+    debug: "0"
+
   # -- Set this to "myprefix_" if you want your table names to have the myprefix_
   tablePrefix: "lime_"
   # -- Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates

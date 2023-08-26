@@ -113,6 +113,19 @@ spec:
             value: {{ .Values.limesurvey.dontShowScriptName | quote }}
           - name: TZ
             value: {{ .Values.limesurvey.tz | quote }}
+          - name: LIMESURVEY_SMTP_HOST
+            value: {{ .Values.limesurvey.smtp.host | quote }}
+          - name: LIMESURVEY_SMTP_USER
+            value: {{ .Values.limesurvey.smtp.user | quote }}
+          - name: LIMESURVEY_SMTP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "limesurvey.smtpSecretName" . }}
+                key: limesurvey-smtp-password
+          - name: LIMESURVEY_SMTP_SSL
+            value: {{ .Values.limesurvey.smtp.ssl | quote }}
+          - name: LIMESURVEY_SMTP_DEBUG
+            value: {{ .Values.limesurvey.smtp.debug | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.deployment.lifecycleHooks }}
           lifecycle: {{- toYaml .Values.deployment.lifecycleHooks | nindent 12 }}

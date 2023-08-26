@@ -92,3 +92,14 @@ Return the LimeSurvey Secret Name
 {{- printf "%s" (include "limesurvey.fullname" .) -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Return the LimeSurvey SMTP Secret Name
+*/}}
+{{- define "limesurvey.smtpSecretName" -}}
+{{- if .Values.limesurvey.smtp.existingSecret -}}
+{{- printf "%s" .Values.limesurvey.smtp.existingSecret -}}
+{{- else -}}
+{{- printf "%s" (include "limesurvey.fullname" .) -}}
+{{- end -}}
+{{- end -}}
