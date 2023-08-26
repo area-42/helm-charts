@@ -100,6 +100,6 @@ Return the LimeSurvey SMTP Secret Name
 {{- if .Values.limesurvey.smtp.existingSecret -}}
 {{- printf "%s" .Values.limesurvey.smtp.existingSecret -}}
 {{- else -}}
-{{- printf "%s" (include "limesurvey.fullname" .) -}}
+{{- printf "%s-smtp" (include "limesurvey.fullname" .) -}}
 {{- end -}}
 {{- end -}}
