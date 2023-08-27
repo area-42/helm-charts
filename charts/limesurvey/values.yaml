@@ -96,8 +96,8 @@ limesurvey:
     existingSecret: ""
     # -- set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection
     ssl: ""
-    # -- Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates
-    debug: "0"
+    # -- set this to any value to enable SMTP debug mode
+    debug: ""
 
   # -- Set this to "myprefix_" if you want your table names to have the myprefix_
   tablePrefix: "lime_"

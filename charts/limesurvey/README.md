@@ -59,7 +59,7 @@ helm install limesurvey \
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
-| limesurvey.smtp.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
+| limesurvey.smtp.debug | string | `""` | set this to any value to enable SMTP debug mode |
 | limesurvey.smtp.existingSecret | string | `""` | Use existing secret (smtp.password will be ignored). secret must contain the key limesurvey-smtp-password |
 | limesurvey.smtp.host | string | `""` | set the SMTP host - you can also specify a different port than 25 by using this format: [hostname:port], e.g. "smtp.example.com:587") |
 | limesurvey.smtp.password | string | `""` | SMTP authorization password - empty password is not allowed |
