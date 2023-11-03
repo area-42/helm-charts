@@ -96,6 +96,8 @@ limesurvey:
     existingSecret: ""
     # -- set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection
     ssl: ""
+    # -- The email address where messages will be sent from
+    from_email: your-email@example.net
     # -- set this to any value to enable SMTP debug mode
     debug: ""
 

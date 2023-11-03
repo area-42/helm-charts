@@ -124,6 +124,8 @@ spec:
                 key: limesurvey-smtp-password
           - name: LIMESURVEY_SMTP_SSL
             value: {{ .Values.limesurvey.smtp.ssl | quote }}
+          - name: LIMESURVEY_FROM_EMAIL
+            value: {{ .Values.limesurvey.smtp.from_email | quote }}
           - name: LIMESURVEY_SMTP_DEBUG
             value: {{ .Values.limesurvey.smtp.debug | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
