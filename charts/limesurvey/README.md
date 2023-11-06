@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.2.32](https://img.shields.io/badge/Version-0.2.32-informational?style=for-the-badge)
+![Version: 0.2.33](https://img.shields.io/badge/Version-0.2.33-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.3.2](https://img.shields.io/badge/AppVersion-6.3.2-informational?style=for-the-badge)
+![AppVersion: 6.3.4](https://img.shields.io/badge/AppVersion-6.3.4-informational?style=for-the-badge)
 
 ## Description
 
@@ -61,6 +61,7 @@ helm install limesurvey \
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
 | limesurvey.smtp.debug | string | `""` | set this to any value to enable SMTP debug mode |
 | limesurvey.smtp.existingSecret | string | `""` | Use existing secret (smtp.password will be ignored). secret must contain the key limesurvey-smtp-password |
+| limesurvey.smtp.from_email | string | `"your-email@example.net"` | The email address where messages will be sent from |
 | limesurvey.smtp.host | string | `""` | set the SMTP host - you can also specify a different port than 25 by using this format: [hostname:port], e.g. "smtp.example.com:587") |
 | limesurvey.smtp.password | string | `""` | SMTP authorization password - empty password is not allowed |
 | limesurvey.smtp.ssl | string | `""` | set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection |
