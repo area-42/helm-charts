@@ -2,8 +2,8 @@ apiVersion: v2
 name: limesurvey
 type: application
 description: Limesurvey is the number one open-source survey software. This chart uses the excellent container image from Adam Zammit of the Australian Consortium for Social and Political Research Incorporated (ACSPRI).
-version: 0.2.45
-appVersion: "6.4.5"
+version: 0.2.46
+appVersion: "6.4.6"
 maintainers:
   - email: christoph.scholz@gmail.com
     name: Christoph Scholz
