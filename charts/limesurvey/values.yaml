@@ -189,6 +189,8 @@ mariadb:
 ## -- Use an externally provisioned database instance
 ## Ignored when mariadb.enabled is set to true
 externalDatabase:
+  # -- Type of external database ("mysql" or "pgsql")
+  type: mysql
   # -- External Database server host
   host: mariadb.example.com
   # -- External Database server port

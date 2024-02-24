@@ -59,6 +59,12 @@ spec:
               mountPath: {{ .mountPath }}
           {{- end }}
           env:
+          - name: LIMESURVEY_DB_TYPE
+            {{- if eq .Values.mariadb.enabled true }}
+            value: "mysql"
+            {{- else }}
+            value: {{ .Values.externalDatabase.type }}
+            {{- end }}
           - name: LIMESURVEY_DB_HOST
             {{- if eq .Values.mariadb.enabled true }}
             value: {{ include "limesurvey.mariadb.fullname" . }}
@@ -157,37 +163,26 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       initContainers:
-      - name: mariadb-isalive
-        image: {{ .Values.mariadb.image.registry }}/{{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}
+      - name: db-isalive
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         env:
-        - name: MARIADB_HOST
+        - name: LIMESURVEY_DB_HOST
           {{- if eq .Values.mariadb.enabled true }}
           value: {{ include "limesurvey.mariadb.fullname" . }}
           {{- else }}
           value: {{ .Values.externalDatabase.host }}
           {{- end }}
-        - name: MARIADB_PORT
+        - name: LIMESURVEY_DB_PORT
           {{- if eq .Values.mariadb.enabled true }}
           value: {{ coalesce .Values.mariadb.primary.service.ports.mysql .Values.mariadb.primary.service.port 3306 | quote }}
           {{- else }}
           value: {{ coalesce .Values.externalDatabase.port 3306 | quote }}
           {{- end }}
-        - name: MARIADB_USER
-          {{- if eq .Values.mariadb.enabled true }}
-          value: {{ .Values.mariadb.auth.username }}
-          {{- else }}
-          value: {{ .Values.externalDatabase.username }}
-          {{- end }}
-        - name: MARIADB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "limesurvey.databaseSecretName" . }}
-              key: mariadb-password
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command:
           - "sh"
           - "-c"
-          - "until mariadb --host=${MARIADB_HOST} --port=${MARIADB_PORT} --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mariadb; sleep 2; done;"
+          - "until nc -z -v -w30 ${LIMESURVEY_DB_HOST} ${LIMESURVEY_DB_PORT}; do echo waiting for db; sleep 5; done;"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -34,6 +34,7 @@ helm install limesurvey \
 | externalDatabase.host | string | `"mariadb.example.com"` | External Database server host |
 | externalDatabase.password | string | `""` | External Database user password |
 | externalDatabase.port | int | `3306` | External Database server port |
+| externalDatabase.type | string | `"mysql"` | Type of external database ("mysql" or "pgsql") |
 | externalDatabase.username | string | `"limesurvey"` | External Database username |
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the Limesurvey container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the Limesurvey container |
