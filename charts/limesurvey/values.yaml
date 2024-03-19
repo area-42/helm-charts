@@ -185,6 +185,9 @@ mariadb:
       # storageClass: ""
       accessMode: ReadWriteOnce
       size: 8Gi
+    # -- Set container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if primary.resources is set (primary.resources is recommended for production).
+    # More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
+    resourcesPreset: "none"
 
 ## -- Use an externally provisioned database instance
 ## Ignored when mariadb.enabled is set to true

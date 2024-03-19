@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.2.51](https://img.shields.io/badge/Version-0.2.51-informational?style=for-the-badge)
+![Version: 0.2.52](https://img.shields.io/badge/Version-0.2.52-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.4.12](https://img.shields.io/badge/AppVersion-6.4.12-informational?style=for-the-badge)
+![AppVersion: 6.5.0](https://img.shields.io/badge/AppVersion-6.5.0-informational?style=for-the-badge)
 
 ## Description
 
@@ -80,6 +80,7 @@ helm install limesurvey \
 | mariadb.primary.persistence.accessMode | string | `"ReadWriteOnce"` | Use an existing Persistent Volume Claim (must be created ahead of time) existingClaim: "" storageClass: "" |
 | mariadb.primary.persistence.enabled | bool | `true` | Enable persistence using Persistent Volume Claims ref: http://kubernetes.io/docs/user-guide/persistent-volumes/ |
 | mariadb.primary.persistence.size | string | `"8Gi"` |  |
+| mariadb.primary.resourcesPreset | string | `"none"` | Set container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if primary.resources is set (primary.resources is recommended for production). More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15 |
 | nameOverride | string | `""` | String to override the default generated name |
 | nodeSelector | object | `{}` | Set the node selector for the pod. |
 | persistence.accessModes[0] | string | `"ReadWriteOnce"` |  |
