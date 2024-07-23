@@ -1,6 +1,6 @@
 dependencies:
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
-  version: 19.0.0
-digest: sha256:7aeaeebdfe7ed4f198e18bc515ae6cbf0e83bc0e75a6a56a740fac83091c409e
-generated: "2024-07-15T16:21:06.140009996+02:00"
+  version: 19.0.1
+digest: sha256:e4eaff4011f036d502a8442361f0b828881f9766ab2e36253687932610fed7a9
+generated: "2024-07-23T17:02:00.635491849+02:00"
