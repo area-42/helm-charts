@@ -58,6 +58,7 @@ helm install limesurvey \
 | limesurvey.dbSessions | string | `""` | Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions |
 | limesurvey.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
+| limesurvey.dontUpdate | string | `""` | Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
 | limesurvey.smtp.debug | string | `""` | set this to any value to enable SMTP debug mode |

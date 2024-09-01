@@ -113,6 +113,8 @@ limesurvey:
   dbSessions: ""
   # -- Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name
   dontShowScriptName: ""
+  # -- Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache
+  dontUpdate: ""
   # -- Time zone name. If set, will configure PHP and LimeSurvey to use this time zone
   tz: "Europe/Berlin"
 

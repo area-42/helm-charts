@@ -117,6 +117,8 @@ spec:
             value: {{ .Values.limesurvey.dbSessions | quote }}
           - name: LIMESURVEY_DONT_SHOW_SCRIPT_NAME
             value: {{ .Values.limesurvey.dontShowScriptName | quote }}
+          - name: LIMESURVEY_DONT_UPDATE
+            value: {{ .Values.limesurvey.dontUpdate | quote }}
           - name: TZ
             value: {{ .Values.limesurvey.tz | quote }}
           - name: LIMESURVEY_SMTP_HOST
