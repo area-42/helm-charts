@@ -111,6 +111,10 @@ limesurvey:
   useInnodb: "true"
   # -- Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions
   dbSessions: ""
+  # -- Leave blank or don't set to use default sessions. Set to the desired handler (eg redis, memcached) if you want to specify. Must use in conjuction with phpSessionSavePath
+  phpSessionSaveHandler: ""
+  # -- Leave blank or don't set to use default sessions. Set to the desired session path if you want to specify. See https://github.com/phpredis/phpredis#php-session-handler for redis path syntax. Must use in conjuction with phpSessionSaveHandler
+  phpSessionSavePath: ""
   # -- Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name
   dontShowScriptName: ""
   # -- Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache

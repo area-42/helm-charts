@@ -1,6 +1,6 @@
 # LimeSurvey
 
-![Version: 0.2.73](https://img.shields.io/badge/Version-0.2.73-informational?style=for-the-badge)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 6.6.2](https://img.shields.io/badge/AppVersion-6.6.2-informational?style=for-the-badge)
 
@@ -60,6 +60,8 @@ helm install limesurvey \
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
 | limesurvey.dontUpdate | string | `""` | Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
+| limesurvey.phpSessionSaveHandler | string | `""` | Leave blank or don't set to use default sessions. Set to the desired handler (eg redis, memcached) if you want to specify. Must use in conjuction with phpSessionSavePath |
+| limesurvey.phpSessionSavePath | string | `""` | Leave blank or don't set to use default sessions. Set to the desired session path if you want to specify. See https://github.com/phpredis/phpredis#php-session-handler for redis path syntax. Must use in conjuction with phpSessionSaveHandler |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
 | limesurvey.smtp.debug | string | `""` | set this to any value to enable SMTP debug mode |
 | limesurvey.smtp.existingSecret | string | `""` | Use existing secret (smtp.password will be ignored). secret must contain the key limesurvey-smtp-password |

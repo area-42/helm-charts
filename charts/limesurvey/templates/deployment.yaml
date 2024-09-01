@@ -115,6 +115,10 @@ spec:
             value: {{ .Values.limesurvey.useInnodb | quote }}
           - name: LIMESURVEY_DB_SESSIONS
             value: {{ .Values.limesurvey.dbSessions | quote }}
+          - name: LIMESURVEY_PHP_SESSION_SAVE_HANDLER
+            value: {{ .Values.limesurvey.phpSessionSaveHandler | quote }}
+          - name: LIMESURVEY_PHP_SESSION_SAVE_PATH
+            value: {{ .Values.limesurvey.phpSessionSavePath | quote }}
           - name: LIMESURVEY_DONT_SHOW_SCRIPT_NAME
             value: {{ .Values.limesurvey.dontShowScriptName | quote }}
           - name: LIMESURVEY_DONT_UPDATE
