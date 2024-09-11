@@ -2,8 +2,8 @@ apiVersion: v2
 name: limesurvey
 type: application
 description: Limesurvey is the number one open-source survey software. This chart uses the excellent container image from Adam Zammit of the Australian Consortium for Social and Political Research Incorporated (ACSPRI).
-version: 0.3.1
-appVersion: "6.6.2"
+version: 0.3.2
+appVersion: "6.6.3"
 maintainers:
   - email: christoph.scholz@gmail.com
     name: Christoph Scholz
@@ -18,3 +18,7 @@ dependencies:
     condition: mariadb.enabled
     repository: https://charts.bitnami.com/bitnami
     version: ">= 12.x"
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Update to application version 6.6.3
