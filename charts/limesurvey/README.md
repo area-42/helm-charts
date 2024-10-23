@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=for-the-badge)
+![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.6.6](https://img.shields.io/badge/AppVersion-6.6.6-informational?style=for-the-badge)
+![AppVersion: 6.6.6.1](https://img.shields.io/badge/AppVersion-6.6.6.1-informational?style=for-the-badge)
 
 ## Description
 
@@ -55,6 +55,7 @@ helm install limesurvey \
 | limesurvey.admin.name | string | `"Lime Administrator"` | The full name of the Limesurvey administrator |
 | limesurvey.admin.password | string | `""` | The password of the Limesurvey administrator |
 | limesurvey.admin.username | string | `"admin"` | The username of the Limesurvey administrator) |
+| limesurvey.apiMode | string | `"off"` | Set to one of 'off', 'json' or 'xml' to turn on the RPC-API |
 | limesurvey.dbSessions | string | `""` | Leave blank or don't set to use file based sessions. Set to any value to use DB based sessions |
 | limesurvey.debug | string | `"0"` | Debug level of Limesurvey, 0 is off, 1 for errors, 2 for strict PHP and to be able to edit standard templates |
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |

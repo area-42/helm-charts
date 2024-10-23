@@ -121,6 +121,8 @@ limesurvey:
   dontUpdate: ""
   # -- Time zone name. If set, will configure PHP and LimeSurvey to use this time zone
   tz: "Europe/Berlin"
+  # -- Set to one of 'off', 'json' or 'xml' to turn on the RPC-API
+  apiMode: "off"
 
 
   livenessProbe:

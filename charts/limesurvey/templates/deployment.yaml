@@ -140,6 +140,8 @@ spec:
             value: {{ .Values.limesurvey.smtp.from_email | quote }}
           - name: LIMESURVEY_SMTP_DEBUG
             value: {{ .Values.limesurvey.smtp.debug | quote }}
+          - name: LIMESURVEY_API_MODE
+            value: {{ .Values.limesurvey.apiMode | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.deployment.lifecycleHooks }}
           lifecycle: {{- toYaml .Values.deployment.lifecycleHooks | nindent 12 }}
