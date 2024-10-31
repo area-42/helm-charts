@@ -1,6 +1,6 @@
 # LimeSurvey
 
-![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=for-the-badge)
+![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 6.6.7](https://img.shields.io/badge/AppVersion-6.6.7-informational?style=for-the-badge)
 
@@ -50,6 +50,7 @@ helm install limesurvey \
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` | Ingress tls |
+| initContainerSecurityContext | object | `{}` |  |
 | limesurvey.admin.email | string | `"lime@lime.lime"` | The email address of the Limesurvey administrator |
 | limesurvey.admin.existingSecret | string | `""` | Use existing secret (admin.password will be ignored). secret must contain the key limesurvey-admin-password |
 | limesurvey.admin.name | string | `"Lime Administrator"` | The full name of the Limesurvey administrator |
