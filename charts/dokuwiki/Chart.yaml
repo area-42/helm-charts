@@ -1,0 +1,19 @@
+apiVersion: v2
+name: dokuwiki
+type: application
+description: The OpenSource Wiki Software. This chart uses the official Docker image for DokuWiki.
+version: 0.1.1
+appVersion: "2024-02-06b"
+maintainers:
+  - email: christoph.scholz@gmail.com
+    name: Christoph Scholz
+    url: https://github.com/ChaosKid42
+icon: https://raw.githubusercontent.com/area-42/helm-charts/main/charts/dokuwiki/icon.png
+sources:
+  - https://github.com/area-42/helm-charts
+  - https://github.com/dokuwiki/docker
+  - https://www.dokuwiki.org/dokuwiki
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Initial version

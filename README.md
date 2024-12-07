@@ -12,3 +12,5 @@ helm repo update
 The following Helm Charts are available:
 
 * [LimeSurvey](./charts/limesurvey/README.md)
+
+* [DokuWiki](./charts/dokuwiki/README.md)

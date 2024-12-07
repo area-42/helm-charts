@@ -1,0 +1,153 @@
+# Default values for dokuwiki.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- (int) Numbers of replicas
+replicaCount: 1
+
+image:
+  # -- The docker image repository to use
+  repository: dokuwiki/dokuwiki
+  # -- The docker image pull policy
+  pullPolicy: IfNotPresent
+  # -- The docker image tag to use
+  # @default -- vhart appVersion
+  tag: ""
+
+imagePullSecrets: []
+# -- String to override the default generated name
+nameOverride: ""
+# -- String to override the default generated fullname
+fullnameOverride: ""
+
+deployment: {}
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: false
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- Annotations for the pods
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # runAsNonRoot: true
+  # readOnlyRootFilesystem: true
+  # runAsUser: 1000
+
+service:
+  # -- Specifies what type of Service should be created
+  type: ClusterIP
+  # -- Default Service port
+  port: 80
+
+ingress:
+  # -- Specifies whether Ingress should be created or not
+  enabled: false
+  # -- Specifies what type of Ingress should be created
+  className: ""
+  # -- Additional annotations
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # -- Ingress tls
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+dokuwiki:
+  admin:
+    # -- File upload size limit
+    uploadLimit: 128M
+    # -- Process Memory Limit
+    memoryLimit: 256M
+    # -- The timezone
+    timezone: UTC
+
+  livenessProbe:
+    enabled: true
+  readinessProbe:
+    enabled: true
+
+persistence:
+  # -- Enable persistence using Persistent Volume Claims
+  # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+  enabled: true
+  storageClass: null
+  accessModes:
+    - ReadWriteOnce
+  size: 5Gi
+  annotations:
+    helm.sh/resource-policy: "keep"
+  finalizers:
+    - kubernetes.io/pvc-protection
+  selectorLabels: {}
+  existingClaim: null
+
+# -- This allows you to mount additional volumes
+# into the DokuWiki container
+extraVolumeMounts: []
+# - name: extra-volume-0
+#   mountPath: /mnt/volume0
+#   readOnly: true
+#   existingClaim: volume-claim
+# - name: extra-volume-1
+#   mountPath: /mnt/volume1
+#   readOnly: true
+#   hostPath: /usr/shared/
+# - name: extra-volume-configmap
+#   configMap: dokuwiki
+#   items:
+#   - key: config.php
+#     path: application/config/config.php
+
+# -- This allows you to mount additional "emptyDirs"
+# into the DokuWiki container
+extraEmptyDirMounts: []
+# - name: extra-empty-dir
+#   mountPath: /var/lib/foobar
+
+# -- Set the resources requests and limits
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# -- Set the node selector for the pod.
+nodeSelector: {}
+
+# -- Set the tolerations for the pod.
+tolerations: []
+
+# -- Set the affinity for the pod.
+affinity: {}
