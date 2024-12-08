@@ -49,11 +49,11 @@ spec:
               mountPath: {{ .mountPath }}
           {{- end }}
           env:
-          - name: DOKUWIKI_PHP_UPLOADLIMIT
+          - name: PHP_UPLOADLIMIT
             value: {{ .Values.dokuwiki.admin.uploadLimit | quote }}
-          - name: DOKUWIKI_PHP_MEMORYLIMIT
+          - name: PHP_MEMORYLIMIT
             value: {{ .Values.dokuwiki.admin.memoryLimit | quote }}
-          - name: DOKUWIKI_PHP_TIMEZONE
+          - name: PHP_TIMEZONE
             value: {{ .Values.dokuwiki.admin.timezone | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.deployment.lifecycleHooks }}
