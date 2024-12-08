@@ -50,11 +50,11 @@ spec:
           {{- end }}
           env:
           - name: DOKUWIKI_PHP_UPLOADLIMIT
-            value: {{ .Values.dokuwiki.uploadLimit | quote }}
+            value: {{ .Values.dokuwiki.admin.uploadLimit | quote }}
           - name: DOKUWIKI_PHP_MEMORYLIMIT
-            value: {{ .Values.dokuwiki.memoryLimit | quote }}
+            value: {{ .Values.dokuwiki.admin.memoryLimit | quote }}
           - name: DOKUWIKI_PHP_TIMEZONE
-            value: {{ .Values.dokuwiki.timezone | quote }}
+            value: {{ .Values.dokuwiki.admin.timezone | quote }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.deployment.lifecycleHooks }}
           lifecycle: {{- toYaml .Values.deployment.lifecycleHooks | nindent 12 }}

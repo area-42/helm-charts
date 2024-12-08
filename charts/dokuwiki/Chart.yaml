@@ -2,7 +2,7 @@ apiVersion: v2
 name: dokuwiki
 type: application
 description: The OpenSource Wiki Software. This chart uses the official Docker image for DokuWiki.
-version: 0.1.1
+version: 0.1.2
 appVersion: "2024-02-06b"
 maintainers:
   - email: christoph.scholz@gmail.com
@@ -15,5 +15,5 @@ sources:
   - https://www.dokuwiki.org/dokuwiki
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: Initial version
+    - kind: fixed
+      description: dokuwiki.admin.* values now working
