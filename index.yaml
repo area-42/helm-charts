@@ -3,6 +3,30 @@ entries:
   dokuwiki:
   - annotations:
       artifacthub.io/changes: |
+        - kind: added
+          description: add extraContainers
+    apiVersion: v2
+    appVersion: 2024-02-06b
+    created: "2024-12-15T15:28:43.882863642Z"
+    description: The OpenSource Wiki Software. This chart uses the official Docker
+      image for DokuWiki.
+    digest: 36f64c66997ca5775c9ffa5649a96a42743aa82f40a245b24867ed2babb8e2f9
+    icon: https://raw.githubusercontent.com/area-42/helm-charts/main/charts/dokuwiki/icon.png
+    maintainers:
+    - email: christoph.scholz@gmail.com
+      name: Christoph Scholz
+      url: https://github.com/ChaosKid42
+    name: dokuwiki
+    sources:
+    - https://github.com/area-42/helm-charts
+    - https://github.com/dokuwiki/docker
+    - https://www.dokuwiki.org/dokuwiki
+    type: application
+    urls:
+    - https://github.com/area-42/helm-charts/releases/download/dokuwiki-0.1.4/dokuwiki-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/changes: |
         - kind: fixed
           description: second try for fixing dokuwiki.admin.* values
     apiVersion: v2
@@ -2278,4 +2302,4 @@ entries:
     urls:
     - https://github.com/area-42/helm-charts/releases/download/limesurvey-0.1.0/limesurvey-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-08T12:44:07.465549612Z"
+generated: "2024-12-15T15:28:43.883036132Z"
