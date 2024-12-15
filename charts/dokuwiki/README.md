@@ -1,6 +1,6 @@
 # DokuWiki
 
-![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=for-the-badge)
+![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 2024-02-06b](https://img.shields.io/badge/AppVersion-2024--02--06b-informational?style=for-the-badge)
 
@@ -32,6 +32,7 @@ helm install dokuwiki area-42/dokuwiki
 | dokuwiki.admin.uploadLimit | string | `"128M"` | File upload size limit |
 | dokuwiki.livenessProbe.enabled | bool | `true` |  |
 | dokuwiki.readinessProbe.enabled | bool | `true` |  |
+| extraContainers | list | `[]` | This allows you to add additional containers (sidecars) to the DokuWiki container |
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the DokuWiki container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the DokuWiki container |
 | fullnameOverride | string | `""` | String to override the default generated fullname |

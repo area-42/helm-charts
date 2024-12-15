@@ -100,6 +100,14 @@ persistence:
   selectorLabels: {}
   existingClaim: null
 
+# -- This allows you to add additional containers (sidecars)
+# to the DokuWiki container
+extraContainers: []
+# - name: busybox
+#   image: busybox
+#   command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+
+
 # -- This allows you to mount additional volumes
 # into the DokuWiki container
 extraVolumeMounts: []
