@@ -1,6 +1,6 @@
 # DokuWiki
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=for-the-badge)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 2024-02-06b](https://img.shields.io/badge/AppVersion-2024--02--06b-informational?style=for-the-badge)
 
@@ -30,8 +30,8 @@ helm install dokuwiki area-42/dokuwiki
 | dokuwiki.admin.memoryLimit | string | `"256M"` | Process Memory Limit |
 | dokuwiki.admin.timezone | string | `"UTC"` | The timezone |
 | dokuwiki.admin.uploadLimit | string | `"128M"` | File upload size limit |
-| dokuwiki.livenessProbe.enabled | bool | `true` |  |
-| dokuwiki.readinessProbe.enabled | bool | `true` |  |
+| dokuwiki.livenessProbe | object | See _values.yaml_ | Liveness probe configuration for the default container. |
+| dokuwiki.readinessProbe | object | See _values.yaml_ | Readiness probe configuration for the default container. |
 | extraContainers | list | `[]` | This allows you to add additional containers (sidecars) to the DokuWiki container |
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the DokuWiki container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the DokuWiki container |

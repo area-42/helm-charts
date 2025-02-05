@@ -80,10 +80,19 @@ dokuwiki:
     # -- The timezone
     timezone: UTC
 
+  # -- Liveness probe configuration for the default container.
+  # @default -- See _values.yaml_
   livenessProbe:
-    enabled: true
+    httpGet:
+      path: /
+      port: 8080
+
+  # -- Readiness probe configuration for the default container.
+  # @default -- See _values.yaml_
   readinessProbe:
-    enabled: true
+    httpGet:
+      path: /
+      port: 8080
 
 persistence:
   # -- Enable persistence using Persistent Volume Claims

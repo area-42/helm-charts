@@ -63,18 +63,10 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          {{- if .Values.dokuwiki.livenessProbe.enabled }}
           livenessProbe:
-            httpGet:
-              path: /
-              port: 8080
-          {{- end }}
-          {{- if .Values.dokuwiki.readinessProbe.enabled }}
+            {{- toYaml .Values.dokuwiki.livenessProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: 8080
-          {{- end }}
+            {{- toYaml .Values.dokuwiki.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
