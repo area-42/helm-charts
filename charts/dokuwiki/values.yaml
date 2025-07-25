@@ -70,6 +70,7 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+  extraTls: {}
 
 dokuwiki:
   admin:

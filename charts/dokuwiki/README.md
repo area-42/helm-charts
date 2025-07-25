@@ -47,6 +47,7 @@ helm install dokuwiki area-42/dokuwiki
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` | Ingress tls |
+| ingress.extraTls | object | `{}` | Extra definition to place below the ingress tls subkey |
 | nameOverride | string | `""` | String to override the default generated name |
 | nodeSelector | object | `{}` | Set the node selector for the pod. |
 | persistence.accessModes[0] | string | `"ReadWriteOnce"` |  |
