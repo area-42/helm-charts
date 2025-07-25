@@ -26,7 +26,7 @@ spec:
   {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
   ingressClassName: {{ .Values.ingress.className }}
   {{- end }}
-  {{- if .Values.ingress.tls }}
+  {{- if or .Values.ingress.tls .Values.ingress.extraTls }}
   tls:
     {{- range .Values.ingress.tls }}
     - hosts:
@@ -34,6 +34,9 @@ spec:
         - {{ . | quote }}
         {{- end }}
       secretName: {{ .secretName }}
+    {{- end }}
+    {{- if .Values.ingress.extraTls }}
+    {{- toYaml .Values.ingress.extraTls | nindent 4 }}
     {{- end }}
   {{- end }}
   rules:

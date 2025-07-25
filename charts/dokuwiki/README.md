@@ -43,6 +43,7 @@ helm install dokuwiki area-42/dokuwiki
 | ingress.annotations | object | `{}` | Additional annotations |
 | ingress.className | string | `""` | Specifies what type of Ingress should be created |
 | ingress.enabled | bool | `false` | Specifies whether Ingress should be created or not |
+| ingress.extraTls | list | `[]` | Additional definitions for ingress tls |
 | ingress.hosts[0].host | string | `"chart-example.local"` |  |
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
