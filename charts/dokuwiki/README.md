@@ -36,7 +36,8 @@ helm install dokuwiki area-42/dokuwiki
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the DokuWiki container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the DokuWiki container |
 | fullnameOverride | string | `""` | String to override the default generated fullname |
-| image.pullPolicy | string | `"IfNotPresent"` | The docker image pull policy |
+| fullnameOverride | string | `""` | String to override the default generated fullname |
+| global.imageRegistry | string | `""` | Optional registry to pull all images from. eg. `myregistry.acme.com/` - trailing slash is required when specifed |
 | image.repository | string | `"dokuwiki/dokuwiki"` | The docker image repository to use |
 | image.tag | string | vhart appVersion | The docker image tag to use |
 | imagePullSecrets | list | `[]` |  |

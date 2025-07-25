@@ -1,3 +1,8 @@
+global:
+  imageRegistry: ""
+  # Optional registry to pull all images from. eg. 'myregistry.acme.com/'
+  # trailing slash is required when specifed
+  
 # Default values for dokuwiki.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -71,6 +76,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
   extraTls: {}
+
 
 dokuwiki:
   admin:

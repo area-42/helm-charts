@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: {{ .Values.global.imageRegistry }}busybox
       command: ['wget']
       args: ['{{ include "dokuwiki.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
