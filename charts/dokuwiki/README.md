@@ -38,6 +38,7 @@ helm install dokuwiki area-42/dokuwiki
 | fullnameOverride | string | `""` | String to override the default generated fullname |
 | fullnameOverride | string | `""` | String to override the default generated fullname |
 | global.imageRegistry | string | `""` | Optional registry to pull all images from. eg. `myregistry.acme.com/` - trailing slash is required when specifed |
+| image.pullPolicy | string | `"IfNotPresent"` | The docker image pull policy |
 | image.repository | string | `"dokuwiki/dokuwiki"` | The docker image repository to use |
 | image.tag | string | vhart appVersion | The docker image tag to use |
 | imagePullSecrets | list | `[]` |  |
