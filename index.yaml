@@ -6,6 +6,30 @@ entries:
         - kind: changed
           description: probes can be configured freely
     apiVersion: v2
+    appVersion: 2025-05-14a
+    created: "2025-07-26T07:34:54.319994613Z"
+    description: The OpenSource Wiki Software. This chart uses the official Docker
+      image for DokuWiki.
+    digest: d6d55e2f2397851d1a943f9f4ba8a43c9089a1c69423db3072172c14b35a454d
+    icon: https://raw.githubusercontent.com/area-42/helm-charts/main/charts/dokuwiki/icon.png
+    maintainers:
+    - email: christoph.scholz@gmail.com
+      name: Christoph Scholz
+      url: https://github.com/ChaosKid42
+    name: dokuwiki
+    sources:
+    - https://github.com/area-42/helm-charts
+    - https://github.com/dokuwiki/docker
+    - https://www.dokuwiki.org/dokuwiki
+    type: application
+    urls:
+    - https://github.com/area-42/helm-charts/releases/download/dokuwiki-0.1.6/dokuwiki-0.1.6.tgz
+    version: 0.1.6
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: probes can be configured freely
+    apiVersion: v2
     appVersion: 2024-02-06b
     created: "2025-02-05T14:15:46.515004908Z"
     description: The OpenSource Wiki Software. This chart uses the official Docker
@@ -3164,4 +3188,4 @@ entries:
     urls:
     - https://github.com/area-42/helm-charts/releases/download/limesurvey-0.1.0/limesurvey-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-24T17:11:48.586182368Z"
+generated: "2025-07-26T07:34:54.320190059Z"
