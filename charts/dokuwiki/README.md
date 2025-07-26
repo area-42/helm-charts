@@ -1,8 +1,8 @@
 # DokuWiki
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=for-the-badge)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 2024-02-06b](https://img.shields.io/badge/AppVersion-2024--02--06b-informational?style=for-the-badge)
+![AppVersion: 2025-05-14a](https://img.shields.io/badge/AppVersion-2025--05--14a-informational?style=for-the-badge)
 
 ## Description
 

@@ -2,8 +2,8 @@ apiVersion: v2
 name: dokuwiki
 type: application
 description: The OpenSource Wiki Software. This chart uses the official Docker image for DokuWiki.
-version: 0.1.5
-appVersion: "2024-02-06b"
+version: 0.1.6
+appVersion: "2025-05-14a"
 maintainers:
   - email: christoph.scholz@gmail.com
     name: Christoph Scholz
@@ -16,4 +16,8 @@ sources:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: probes can be configured freely
+      description: additional definitions for ingress tls
+    - kind: changed
+      description: new value global.imageRegistry
+    - kind: changed
+      description: new app version 2025-05-14a
