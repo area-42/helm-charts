@@ -41,13 +41,14 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  runAsUser: 33
+  runAsGroup: 33
   # capabilities:
   #   drop:
   #   - ALL
   # runAsNonRoot: true
   # readOnlyRootFilesystem: true
-  # runAsUser: 1000
 
 service:
   # -- Specifies what type of Service should be created

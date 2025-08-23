@@ -18,6 +18,10 @@ helm repo update
 helm install dokuwiki area-42/dokuwiki
 ```
 
+## Persistence
+
+Persistence is enabled by default. Make sure the pv is writeable by uid/gid 33 (www-data) as the container by default runs with these rights.
+
 {{ template "chart.valuesSection" . }}
 
 {{ template "chart.homepageLine" . }}

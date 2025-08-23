@@ -1,6 +1,6 @@
 # DokuWiki
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=for-the-badge)
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 2025-05-14a](https://img.shields.io/badge/AppVersion-2025--05--14a-informational?style=for-the-badge)
 
@@ -16,6 +16,10 @@ helm repo update
 
 helm install dokuwiki area-42/dokuwiki
 ```
+
+## Persistence
+
+Persistence is enabled by default. Make sure the pv is writeable by uid/gid 33 (www-data) as the container by default runs with these rights.
 
 ## Values
 
@@ -63,7 +67,8 @@ helm install dokuwiki area-42/dokuwiki
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` | Numbers of replicas |
 | resources | object | `{}` | Set the resources requests and limits |
-| securityContext | object | `{}` |  |
+| securityContext.runAsGroup | int | `33` |  |
+| securityContext.runAsUser | int | `33` |  |
 | service.port | int | `80` | Default Service port |
 | service.type | string | `"ClusterIP"` | Specifies what type of Service should be created |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
