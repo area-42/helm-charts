@@ -2,7 +2,7 @@ apiVersion: v2
 name: dokuwiki
 type: application
 description: The OpenSource Wiki Software. This chart uses the official Docker image for DokuWiki.
-version: 0.1.7
+version: 0.1.8
 appVersion: "2025-05-14a"
 maintainers:
   - email: christoph.scholz@gmail.com
@@ -16,4 +16,4 @@ sources:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: securityContext runAsUser and runAsGroup set to 33 by default
+      description: added option for initContainers

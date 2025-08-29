@@ -1,6 +1,6 @@
 # DokuWiki
 
-![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=for-the-badge)
+![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
 ![AppVersion: 2025-05-14a](https://img.shields.io/badge/AppVersion-2025--05--14a-informational?style=for-the-badge)
 
@@ -19,7 +19,7 @@ helm install dokuwiki area-42/dokuwiki
 
 ## Persistence
 
-Persistence is enabled by default. Make sure the pv is writeable by uid/gid 33 (www-data) as the container by default runs with these rights.
+Persistence is enabled by default. Make sure the pv is writeable by uid/gid 33 (www-data) as the container by default runs with these rights (e.g. b using the `ìnitContainers` value).
 
 ## Values
 
@@ -53,6 +53,7 @@ Persistence is enabled by default. Make sure the pv is writeable by uid/gid 33 (
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` | Ingress tls |
+| initContainers | list | `[]` | Additional initContainers (e.g. for setting file permission as shown in values.yaml) |
 | nameOverride | string | `""` | String to override the default generated name |
 | nodeSelector | object | `{}` | Set the node selector for the pod. |
 | persistence.accessModes[0] | string | `"ReadWriteOnce"` |  |

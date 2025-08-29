@@ -117,11 +117,21 @@ persistence:
   selectorLabels: {}
   existingClaim: null
 
+# -- Additional initContainers (e.g. for setting file permission as shown in values.yaml)
+initContainers: []
+# The "volume-permissions" init container is required if you run into permission issues.
+# - name: volume-permissions
+#   image: busybox:stable
+#   command: ["sh", "-c", "chown -R 33:33 /storage"]
+#   volumeMounts:
+#     - name: dokuwiki-storage
+#       mountPath: /storage
+
 # -- This allows you to add additional containers (sidecars)
 # to the DokuWiki container
 extraContainers: []
 # - name: busybox
-#   image: busybox
+#   image: busybox:stable
 #   command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
 
 
