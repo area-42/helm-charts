@@ -4,6 +4,30 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: added option for initContainers
+    apiVersion: v2
+    appVersion: 2025-05-14a
+    created: "2025-08-29T15:24:59.216165763Z"
+    description: The OpenSource Wiki Software. This chart uses the official Docker
+      image for DokuWiki.
+    digest: 821215088ebaf04b59eca60a3b31d3a9c907bfef3f37677312b8bd1b6984a1cb
+    icon: https://raw.githubusercontent.com/area-42/helm-charts/main/charts/dokuwiki/icon.png
+    maintainers:
+    - email: christoph.scholz@gmail.com
+      name: Christoph Scholz
+      url: https://github.com/ChaosKid42
+    name: dokuwiki
+    sources:
+    - https://github.com/area-42/helm-charts
+    - https://github.com/dokuwiki/docker
+    - https://www.dokuwiki.org/dokuwiki
+    type: application
+    urls:
+    - https://github.com/area-42/helm-charts/releases/download/dokuwiki-0.1.8/dokuwiki-0.1.8.tgz
+    version: 0.1.8
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: securityContext runAsUser and runAsGroup set to 33 by default
     apiVersion: v2
     appVersion: 2025-05-14a
@@ -3304,4 +3328,4 @@ entries:
     urls:
     - https://github.com/area-42/helm-charts/releases/download/limesurvey-0.1.0/limesurvey-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-27T12:12:08.553981862Z"
+generated: "2025-08-29T15:24:59.216418547Z"
