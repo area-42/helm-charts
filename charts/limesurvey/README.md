@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.3.48](https://img.shields.io/badge/Version-0.3.48-informational?style=for-the-badge)
+![Version: 0.3.49](https://img.shields.io/badge/Version-0.3.49-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.15.14](https://img.shields.io/badge/AppVersion-6.15.14-informational?style=for-the-badge)
+![AppVersion: 6.15.15](https://img.shields.io/badge/AppVersion-6.15.15-informational?style=for-the-badge)
 
 ## Description
 
