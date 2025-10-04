@@ -82,6 +82,7 @@ helm install limesurvey \
 | mariadb.auth.password | string | `"changeme"` |  |
 | mariadb.auth.username | string | `"limesurvey"` |  |
 | mariadb.enabled | bool | `true` | Deploy a MariaDB server |
+| mariadb.image.repository | string | `"bitnamilegacy/mariadb"` |  |
 | mariadb.primary.persistence.accessMode | string | `"ReadWriteOnce"` | Use an existing Persistent Volume Claim (must be created ahead of time) existingClaim: "" storageClass: "" |
 | mariadb.primary.persistence.enabled | bool | `true` | Enable persistence using Persistent Volume Claims ref: http://kubernetes.io/docs/user-guide/persistent-volumes/ |
 | mariadb.primary.persistence.size | string | `"8Gi"` |  |

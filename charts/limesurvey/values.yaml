@@ -181,6 +181,8 @@ extraEmptyDirMounts: []
 mariadb:
   # -- Deploy a MariaDB server
   enabled: true
+  image:
+    repository: bitnamilegacy/mariadb
   auth:
     database: limesurvey
     username: limesurvey
