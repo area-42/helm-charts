@@ -197,6 +197,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: Update to application version 6.15.16
+    apiVersion: v2
+    appVersion: 6.15.16
+    created: "2025-10-06T16:36:11.198017392Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: '>= 12.x'
+    description: Limesurvey is the number one open-source survey software. This chart
+      uses the excellent container image from Adam Zammit of the Australian Consortium
+      for Social and Political Research Incorporated (ACSPRI).
+    digest: b5d79838493e468a8cd04e3edb30aaea40974f41fcf783f2a363050b88672821
+    icon: https://raw.githubusercontent.com/area-42/helm-charts/main/charts/limesurvey/icon.png
+    maintainers:
+    - email: christoph.scholz@gmail.com
+      name: Christoph Scholz
+      url: https://github.com/ChaosKid42
+    name: limesurvey
+    sources:
+    - https://github.com/area-42/helm-charts
+    - https://github.com/adamzammit/limesurvey-docker
+    - https://limesurvey.org/
+    type: application
+    urls:
+    - https://github.com/area-42/helm-charts/releases/download/limesurvey-0.3.50/limesurvey-0.3.50.tgz
+    version: 0.3.50
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: Update to application version 6.15.15
     apiVersion: v2
     appVersion: 6.15.15
@@ -3448,4 +3478,4 @@ entries:
     urls:
     - https://github.com/area-42/helm-charts/releases/download/limesurvey-0.1.0/limesurvey-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-04T09:02:15.638602662Z"
+generated: "2025-10-06T16:36:11.198290974Z"
