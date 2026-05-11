@@ -132,11 +132,29 @@ limesurvey:
   # -- Set to one of 'off', 'json' or 'xml' to turn on the RPC-API
   apiMode: "off"
 
+  startupProbe:
+    enabled: true
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+    successThreshold: 1
+    failureThreshold: 3
 
   livenessProbe:
     enabled: true
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+    successThreshold: 1
+    failureThreshold: 3
+
   readinessProbe:
     enabled: true
+    initialDelaySeconds: 0
+    periodSeconds: 10
+    timeoutSeconds: 1
+    successThreshold: 1
+    failureThreshold: 3
 
 persistence:
   # -- Enable persistence using Persistent Volume Claims
