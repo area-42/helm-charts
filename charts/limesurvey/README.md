@@ -1,8 +1,8 @@
 # LimeSurvey
 
-![Version: 0.3.79](https://img.shields.io/badge/Version-0.3.79-informational?style=for-the-badge)
+![Version: 0.3.80](https://img.shields.io/badge/Version-0.3.80-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 6.17.2](https://img.shields.io/badge/AppVersion-6.17.2-informational?style=for-the-badge)
+![AppVersion: 6.17.3](https://img.shields.io/badge/AppVersion-6.17.3-informational?style=for-the-badge)
 
 ## Description
 
@@ -62,9 +62,19 @@ helm install limesurvey \
 | limesurvey.dontShowScriptName | string | `""` | Leave blank or don't set to show the script name `index.php` in URLs. Set to any value to omit the script name |
 | limesurvey.dontUpdate | string | `""` | Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
+| limesurvey.livenessProbe.failureThreshold | int | `3` |  |
+| limesurvey.livenessProbe.initialDelaySeconds | int | `0` |  |
+| limesurvey.livenessProbe.periodSeconds | int | `10` |  |
+| limesurvey.livenessProbe.successThreshold | int | `1` |  |
+| limesurvey.livenessProbe.timeoutSeconds | int | `1` |  |
 | limesurvey.phpSessionSaveHandler | string | `""` | Leave blank or don't set to use default sessions. Set to the desired handler (eg redis, memcached) if you want to specify. Must use in conjuction with phpSessionSavePath |
 | limesurvey.phpSessionSavePath | string | `""` | Leave blank or don't set to use default sessions. Set to the desired session path if you want to specify. See https://github.com/phpredis/phpredis#php-session-handler for redis path syntax. Must use in conjuction with phpSessionSaveHandler |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
+| limesurvey.readinessProbe.failureThreshold | int | `3` |  |
+| limesurvey.readinessProbe.initialDelaySeconds | int | `0` |  |
+| limesurvey.readinessProbe.periodSeconds | int | `10` |  |
+| limesurvey.readinessProbe.successThreshold | int | `1` |  |
+| limesurvey.readinessProbe.timeoutSeconds | int | `1` |  |
 | limesurvey.smtp.debug | string | `""` | set this to any value to enable SMTP debug mode |
 | limesurvey.smtp.existingSecret | string | `""` | Use existing secret (smtp.password will be ignored). secret must contain the key limesurvey-smtp-password |
 | limesurvey.smtp.from_email | string | `"your-email@example.net"` | The email address where messages will be sent from |
@@ -73,6 +83,12 @@ helm install limesurvey \
 | limesurvey.smtp.ssl | string | `""` | set this to "ssl" to use SSL/TLS or "tls" to use StartTLS for SMTP connection |
 | limesurvey.smtp.user | string | `""` | only set this if your server requires authorization - if you set it you HAVE to set a password too |
 | limesurvey.sqlDebug | string | `"0"` | Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2 |
+| limesurvey.startupProbe.enabled | bool | `true` |  |
+| limesurvey.startupProbe.failureThreshold | int | `3` |  |
+| limesurvey.startupProbe.initialDelaySeconds | int | `0` |  |
+| limesurvey.startupProbe.periodSeconds | int | `10` |  |
+| limesurvey.startupProbe.successThreshold | int | `1` |  |
+| limesurvey.startupProbe.timeoutSeconds | int | `1` |  |
 | limesurvey.tablePrefix | string | `"lime_"` | Set this to "myprefix_" if you want your table names to have the myprefix_ |
 | limesurvey.tz | string | `"Europe/Berlin"` | Time zone name. If set, will configure PHP and LimeSurvey to use this time zone |
 | limesurvey.useInnodb | string | `"true"` | Leave blank or don't set to use standard MyISAM database. Set to any value to use InnoDB |
