@@ -63,6 +63,10 @@ helm install limesurvey \
 | limesurvey.dontUpdate | string | `""` | Leave blank or don't set for normal startup. Set to any value to avoid updating password, config settings, and clearning cache |
 | limesurvey.livenessProbe.enabled | bool | `true` |  |
 | limesurvey.livenessProbe.failureThreshold | int | `3` |  |
+| limesurvey.livenessProbe.httpGet.httpHeaders[0].name | string | `"X-Forwarded-Proto"` |  |
+| limesurvey.livenessProbe.httpGet.httpHeaders[0].value | string | `"https"` |  |
+| limesurvey.livenessProbe.httpGet.path | string | `"/"` |  |
+| limesurvey.livenessProbe.httpGet.port | string | `"http"` |  |
 | limesurvey.livenessProbe.initialDelaySeconds | int | `0` |  |
 | limesurvey.livenessProbe.periodSeconds | int | `10` |  |
 | limesurvey.livenessProbe.successThreshold | int | `1` |  |
@@ -71,6 +75,10 @@ helm install limesurvey \
 | limesurvey.phpSessionSavePath | string | `""` | Leave blank or don't set to use default sessions. Set to the desired session path if you want to specify. See https://github.com/phpredis/phpredis#php-session-handler for redis path syntax. Must use in conjuction with phpSessionSaveHandler |
 | limesurvey.readinessProbe.enabled | bool | `true` |  |
 | limesurvey.readinessProbe.failureThreshold | int | `3` |  |
+| limesurvey.readinessProbe.httpGet.httpHeaders[0].name | string | `"X-Forwarded-Proto"` |  |
+| limesurvey.readinessProbe.httpGet.httpHeaders[0].value | string | `"https"` |  |
+| limesurvey.readinessProbe.httpGet.path | string | `"/"` |  |
+| limesurvey.readinessProbe.httpGet.port | string | `"http"` |  |
 | limesurvey.readinessProbe.initialDelaySeconds | int | `0` |  |
 | limesurvey.readinessProbe.periodSeconds | int | `10` |  |
 | limesurvey.readinessProbe.successThreshold | int | `1` |  |
@@ -85,6 +93,10 @@ helm install limesurvey \
 | limesurvey.sqlDebug | string | `"0"` | Debug level of Limesurvey for SQL, 0 is off, 1 is on - note requires LIMESURVEY_DEBUG set to 2 |
 | limesurvey.startupProbe.enabled | bool | `true` |  |
 | limesurvey.startupProbe.failureThreshold | int | `3` |  |
+| limesurvey.startupProbe.httpGet.httpHeaders[0].name | string | `"X-Forwarded-Proto"` |  |
+| limesurvey.startupProbe.httpGet.httpHeaders[0].value | string | `"https"` |  |
+| limesurvey.startupProbe.httpGet.path | string | `"/"` |  |
+| limesurvey.startupProbe.httpGet.port | string | `"http"` |  |
 | limesurvey.startupProbe.initialDelaySeconds | int | `0` |  |
 | limesurvey.startupProbe.periodSeconds | int | `10` |  |
 | limesurvey.startupProbe.successThreshold | int | `1` |  |

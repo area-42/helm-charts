@@ -134,6 +134,12 @@ limesurvey:
 
   startupProbe:
     enabled: true
+    httpGet:
+      path: /
+      port: http
+      httpHeaders:
+      - name: X-Forwarded-Proto
+        value: https
     initialDelaySeconds: 0
     periodSeconds: 10
     timeoutSeconds: 1
@@ -142,6 +148,12 @@ limesurvey:
 
   livenessProbe:
     enabled: true
+    httpGet:
+      path: /
+      port: http
+      httpHeaders:
+      - name: X-Forwarded-Proto
+        value: https
     initialDelaySeconds: 0
     periodSeconds: 10
     timeoutSeconds: 1
@@ -150,6 +162,12 @@ limesurvey:
 
   readinessProbe:
     enabled: true
+    httpGet:
+      path: /
+      port: http
+      httpHeaders:
+      - name: X-Forwarded-Proto
+        value: https
     initialDelaySeconds: 0
     periodSeconds: 10
     timeoutSeconds: 1
