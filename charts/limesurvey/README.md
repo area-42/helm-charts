@@ -36,6 +36,7 @@ helm install limesurvey \
 | externalDatabase.port | int | `3306` | External Database server port |
 | externalDatabase.type | string | `"mysql"` | Type of external database ("mysql" or "pgsql") |
 | externalDatabase.username | string | `"limesurvey"` | External Database username |
+| extraDeploy | list | `[]` | This allows you to have an array of extra objects to deploy with the release |
 | extraEmptyDirMounts | list | `[]` | This allows you to mount additional "emptyDirs" into the Limesurvey container |
 | extraVolumeMounts | list | `[]` | This allows you to mount additional volumes into the Limesurvey container |
 | fullnameOverride | string | `""` | String to override the default generated fullname |

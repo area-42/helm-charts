@@ -171,6 +171,9 @@ persistence:
   selectorLabels: {}
   existingClaim: null
 
+# -- This allows you to have an array of extra objects to deploy with the release
+extraDeploy: []
+
 # -- This allows you to mount additional volumes
 # into the Limesurvey container
 extraVolumeMounts: []
