@@ -157,45 +157,15 @@ spec:
               protocol: TCP
           {{- if .Values.limesurvey.startupProbe.enabled }}
           startupProbe:
-            httpGet:
-              path: /
-              port: http
-              httpHeaders:
-              - name: X-Forwarded-Proto
-                value: https
-            initialDelaySeconds: {{ .Values.limesurvey.startupProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.limesurvey.startupProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.limesurvey.startupProbe.timeoutSeconds }}
-            successThreshold: {{ .Values.limesurvey.startupProbe.successThreshold }}
-            failureThreshold: {{ .Values.limesurvey.startupProbe.failureThreshold }}
+            {{- omit .Values.limesurvey.startupProbe "enabled" | toYaml | nindent 12 }}
           {{- end }}
           {{- if .Values.limesurvey.livenessProbe.enabled }}
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
-              httpHeaders:
-              - name: X-Forwarded-Proto
-                value: https
-            initialDelaySeconds: {{ .Values.limesurvey.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.limesurvey.livenessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.limesurvey.livenessProbe.timeoutSeconds }}
-            successThreshold: {{ .Values.limesurvey.livenessProbe.successThreshold }}
-            failureThreshold: {{ .Values.limesurvey.livenessProbe.failureThreshold }}
+            {{- omit .Values.limesurvey.livenessProbe "enabled" | toYaml | nindent 12 }}
           {{- end }}
           {{- if .Values.limesurvey.readinessProbe.enabled }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
-              httpHeaders:
-              - name: X-Forwarded-Proto
-                value: https
-            initialDelaySeconds: {{ .Values.limesurvey.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.limesurvey.readinessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.limesurvey.readinessProbe.timeoutSeconds }}
-            successThreshold: {{ .Values.limesurvey.readinessProbe.successThreshold }}
-            failureThreshold: {{ .Values.limesurvey.readinessProbe.failureThreshold }}
+            {{- omit .Values.limesurvey.readinessProbe "enabled" | toYaml | nindent 12 }}
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
