@@ -2,7 +2,7 @@
 
 ![Version: 0.3.87](https://img.shields.io/badge/Version-0.3.87-informational?style=for-the-badge)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge)
-![AppVersion: 7.0.7](https://img.shields.io/badge/AppVersion-7.0.7-informational?style=for-the-badge)
+![AppVersion: 7.0.9](https://img.shields.io/badge/AppVersion-7.0.9-informational?style=for-the-badge)
 
 ## Description
 
